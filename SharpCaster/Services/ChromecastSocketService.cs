@@ -13,10 +13,10 @@ namespace SharpCaster.Services
         private static readonly object LockObject = new object();
         private TcpSocketClient _client;
 
-        public async Task Initialize(string host, string port, ConnectionChannel connectionChannel, HeartbeatChannel heartbeatChannel, Action<Stream, bool, CancellationToken> packetReader, CancellationToken cancellationToken)
+        public async Task Initialize(string host, Int32  port, ConnectionChannel connectionChannel, HeartbeatChannel heartbeatChannel, Action<Stream, bool, CancellationToken> packetReader, CancellationToken cancellationToken)
         {
             if (_client == null) _client = new TcpSocketClient();
-            await _client.ConnectAsync(host, int.Parse(port), true, cancellationToken, true);
+            await _client.ConnectAsync(host, port, true, cancellationToken, true);
 
             await connectionChannel.OpenConnection();
             heartbeatChannel.StartHeartbeat();

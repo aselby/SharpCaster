@@ -8,7 +8,7 @@ namespace SharpCaster.Interfaces
 {
     public interface IChromecastSocketService
     {
-        Task Initialize(string host, string port, ConnectionChannel connectionChannel, HeartbeatChannel heartbeatChannel, Action<Stream,bool,CancellationToken> packetReader, CancellationToken cancellationToken);
+        Task Initialize(string host, Int32  port, ConnectionChannel connectionChannel, HeartbeatChannel heartbeatChannel, Action<Stream,bool,CancellationToken> packetReader, CancellationToken cancellationToken);
         Task Write(byte[] bytes, CancellationToken cancellationToken);
         Task Disconnect();
     }

@@ -133,7 +133,7 @@ namespace SharpCaster
         public event EventHandler<Volume> VolumeChanged;
         public List<IChromecastChannel> Channels;
 
-        private const string ChromecastPort = "8009";
+       // private const string ChromecastPort = "8009";
         public CancellationTokenSource CancellationTokenSource;
 
         public ChromeCastClient()
@@ -151,7 +151,7 @@ namespace SharpCaster
         }
 
 
-        public async Task ConnectChromecast(Uri uri)
+        public async Task ConnectChromecast(Uri uri, Int32 ChromecastPort)
         {
             CancellationTokenSource = new CancellationTokenSource();
             await ChromecastSocketService.Initialize(uri.Host, ChromecastPort, ConnectionChannel, HeartbeatChannel, ReadPacket, CancellationTokenSource.Token);

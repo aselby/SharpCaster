@@ -10,5 +10,7 @@ namespace SharpCaster.Models
     {
         public Uri DeviceUri { get; set; }
         public string FriendlyName { get; set; }
+
+        public Int32 Port { get; set; }
     }
 }
